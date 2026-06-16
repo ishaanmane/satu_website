@@ -15,18 +15,19 @@ WordPress site for the SATU Presidents' Forum, built for the Dean (International
 
 ```
 satu_website/
-├── wordpress/              WordPress core + themes + plugins (uploads/ and wp-config.php excluded)
+├── wordpress/              WordPress core + themes + plugins + uploads (wp-config.php excluded)
+├── satu_db.sql              Database dump
 ├── docker-compose.yml      Container setup for WordPress + MariaDB
-├── .env.example            Template for required environment variables
+├── .env.example             Template for required environment variables
 ├── .gitignore
 └── README.md
 ```
 
 **Not included in this repo** (sent separately):
-- `.env` — actual database credentials
-- `satu_db.sql` — database dump
-- `wordpress/wp-content/uploads/` — media files (sent as `uploads.zip`)
-- `wordpress/wp-config.php` — generated fresh on setup
+- `.env` — actual database credentials (sent directly, not committed)
+- `wordpress/wp-config.php` — generated fresh on setup from `.env` values
+
+Everything else — including the database dump and media uploads — is tracked in this repository.
 
 ## Setup Instructions
 
@@ -38,19 +39,14 @@ satu_website/
 
 2. Place the `.env` file (sent separately) in the project root. Use `.env.example` as reference for required variables.
 
-3. Place `satu_db.sql` (sent separately) in the project root.
-
-4. Extract `uploads.zip` (sent separately) into:
-   ```
-   wordpress/wp-content/uploads/
-   ```
-
-5. Start the containers:
+3. Start the containers:
    ```bash
    docker compose up -d
    ```
 
-6. The site will be available at `http://localhost:8080` (or the configured port).
+   The database dump (`satu_db.sql`) is automatically imported on first container startup via the MariaDB entrypoint.
+
+4. The site will be available at `http://localhost:8080` (or the configured port).
 
 ## Theme Structure
 
