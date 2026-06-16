@@ -37,7 +37,11 @@ Everything else — including the database dump and media uploads — is tracked
    cd satu_website
    ```
 
-2. Place the `.env` file (sent separately) in the project root. Use `.env.example` as reference for required variables.
+2. You'll receive a file named `satu_env.txt` separately (sent outside of git since it contains database credentials). Rename it to `.env` and place it in the project root (same level as `docker-compose.yml`):
+   ```bash
+   mv satu_env.txt .env
+   ```
+   Use `.env.example` as reference for the expected variables.
 
 3. Start the containers:
    ```bash
