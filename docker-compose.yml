@@ -1,0 +1,39 @@
+services:
+  db:
+    image: mariadb:11.8
+    restart: always
+    env_file: .env
+    environment:
+      MYSQL_DATABASE: ${WORDPRESS_DB_NAME}
+      MYSQL_USER: ${WORDPRESS_DB_USER}
+      MYSQL_PASSWORD: ${WORDPRESS_DB_PASSWORD}
+      MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD}
+    volumes:
+      - db_data:/var/lib/mysql
+      - ./satu_db.sql:/docker-entrypoint-initdb.d/satu_db.sql
+    networks:
+      - satu_network
+
+  wordpress:
+    image: wordpress:7.0-php8.4-apache
+    restart: always
+    depends_on:
+      - db
+    env_file: .env
+    environment:
+      WORDPRESS_DB_HOST: db
+      WORDPRESS_DB_NAME: ${WORDPRESS_DB_NAME}
+      WORDPRESS_DB_USER: ${WORDPRESS_DB_USER}
+      WORDPRESS_DB_PASSWORD: ${WORDPRESS_DB_PASSWORD}
+    volumes:
+      - ./wordpress:/var/www/html
+    ports:
+      - "8080:80"
+    networks:
+      - satu_network
+
+volumes:
+  db_data:
+
+networks:
+  satu_network:

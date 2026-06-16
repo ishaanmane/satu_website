@@ -1,0 +1,130 @@
+/* ================================================================
+   SATU FOOTER
+   ================================================================ */
+
+.satu-footer {
+    width: 100%;
+    background-color: #4a1414;
+    color: rgba(255, 255, 255, 0.80);
+    font-family: Arial, Helvetica, sans-serif;
+    margin-top: auto;
+}
+
+/* ─── Top Section ────────────────────────────────────────── */
+.satu-footer-top {
+    display: flex;
+    align-items: flex-start;
+    gap: 48px;
+    padding: 56px 72px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.12);
+}
+
+/* ─── Brand Column ───────────────────────────────────────── */
+.satu-footer-brand {
+    flex: 1.4;
+    min-width: 180px;
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+}
+
+.satu-footer-brand img {
+    height: 70px;
+    width: auto;
+    object-fit: contain;
+    display: block;
+}
+
+.satu-footer-brand p {
+    font-size: 0.85rem;
+    line-height: 1.7;
+    color: rgba(255, 255, 255, 0.65);
+    margin: 0;
+}
+
+.satu-footer-brand span {
+    font-size: 0.75rem;
+    font-weight: 700;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: #c8a96e;
+}
+
+/* ─── Link Columns ───────────────────────────────────────── */
+.satu-footer-col {
+    flex: 1;
+    min-width: 140px;
+}
+
+.satu-footer-col h4 {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 0.75rem;
+    font-weight: 700;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: #c8a96e;
+    margin-bottom: 20px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid rgba(200, 169, 110, 0.35);
+}
+
+.satu-footer-col ul {
+    list-style: none !important;
+    margin: 0 !important;
+    padding: 0 !important;
+}
+
+.satu-footer-col ul li {
+    margin-bottom: 12px;
+    list-style: none !important;
+}
+
+.satu-footer-col ul li a {
+    color: rgba(255, 255, 255, 0.70) !important;
+    text-decoration: none !important;
+    font-size: 0.88rem;
+    line-height: 1.5;
+    transition: color 0.2s ease, padding-left 0.2s ease;
+    display: inline-block;
+}
+
+.satu-footer-col ul li a:hover {
+    color: #c8a96e !important;
+    padding-left: 6px;
+}
+
+/* ─── Bottom Bar ─────────────────────────────────────────── */
+.satu-footer-bottom {
+    padding: 20px 72px;
+    text-align: center;
+}
+
+.satu-footer-bottom p {
+    font-size: 0.82rem;
+    color: rgba(255, 255, 255, 0.45);
+    margin: 0;
+}
+
+/* ─── Tablet ─────────────────────────────────────────────── */
+@media (max-width: 900px) {
+    .satu-footer-top {
+        flex-wrap: wrap;
+        padding: 40px 36px;
+        gap: 36px;
+    }
+    .satu-footer-brand { flex: 100%; }
+    .satu-footer-col { flex: 1; min-width: 120px; }
+    .satu-footer-bottom { padding: 18px 36px; }
+}
+
+/* ─── Mobile ─────────────────────────────────────────────── */
+@media (max-width: 550px) {
+    .satu-footer-top {
+        flex-direction: column;
+        padding: 32px 24px;
+        gap: 28px;
+    }
+    .satu-footer-col { width: 100%; }
+    .satu-footer-bottom { padding: 16px 24px; }
+    .satu-footer-brand img { height: 55px; }
+}

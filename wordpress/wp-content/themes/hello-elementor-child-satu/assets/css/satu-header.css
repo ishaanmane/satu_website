@@ -1,0 +1,312 @@
+/* ================================================================
+   SATU HEADER + NAV — satu-header.css
+   ================================================================ */
+
+.satu-header *, .satu-header *::before, .satu-header *::after,
+.satu-nav *, .satu-nav *::before, .satu-nav *::after {
+    box-sizing: border-box; margin: 0; padding: 0;
+}
+
+/* ─── Header Top Bar ─────────────────────────────────────── */
+.satu-header {
+    width: 100%;
+    background-color: #6B1E1E;
+    display: grid;
+    grid-template-columns: 1fr auto 1fr;
+    align-items: center;
+    padding: 16px 48px;
+    min-height: 90px;
+}
+
+.satu-logo-left {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    height: 75px;
+}
+
+.satu-logo-center {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 75px;
+}
+
+.satu-header-right {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    height: 75px;
+}
+
+.satu-logo-left img,
+.satu-logo-center img {
+    height: 100%;
+    width: auto;
+    object-fit: contain;
+    display: block;
+}
+
+/* ─── Login Button ───────────────────────────────────────── */
+.satu-login-btn {
+    display: inline-block;
+    color: #ffffff;
+    text-decoration: none;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 0.85rem;
+    font-weight: 600;
+    letter-spacing: 1.2px;
+    text-transform: uppercase;
+    padding: 8px 20px;
+    border: 2px solid rgba(255, 255, 255, 0.6);
+    border-radius: 4px;
+    transition: background 0.25s ease, border-color 0.25s ease;
+}
+
+.satu-login-btn:hover {
+    background-color: rgba(255, 255, 255, 0.15);
+    border-color: #ffffff;
+    color: #ffffff;
+    text-decoration: none;
+}
+
+/* ─── Nav Bar ────────────────────────────────────────────── */
+.satu-nav {
+    width: 100%;
+    background-color: #4a1414;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0 48px;
+    position: relative;
+    border-bottom: 3px solid #c8a96e;
+    min-height: 48px;
+}
+
+.satu-nav-list {
+    list-style: none;
+    display: flex;
+    align-items: center;
+    margin: 0;
+    padding: 0;
+    flex-wrap: nowrap;
+}
+
+.satu-nav-list > li {
+    position: relative;
+}
+
+.satu-nav-list > li > a {
+    display: block;
+    color: rgba(255, 255, 255, 0.85) !important;
+    text-decoration: none !important;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 0.80rem;
+    font-weight: 600;
+    letter-spacing: 1.4px;
+    text-transform: uppercase;
+    padding: 14px 18px;
+    position: relative;
+    transition: color 0.25s ease;
+    white-space: nowrap;
+}
+
+.satu-nav-list > li > a::after {
+    content: '';
+    position: absolute;
+    bottom: 8px;
+    left: 18px;
+    right: 18px;
+    height: 2px;
+    background: #c8a96e;
+    transform: scaleX(0);
+    transform-origin: center;
+    transition: transform 0.25s ease;
+}
+
+.satu-nav-list > li > a:hover { color: #ffffff !important; }
+.satu-nav-list > li > a:hover::after { transform: scaleX(1); }
+.satu-nav-list > li > a.active { color: #c8a96e !important; }
+.satu-nav-list > li > a.active::after { transform: scaleX(1); }
+
+/* ─── Dropdown ───────────────────────────────────────────── */
+.satu-dropdown {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    min-width: 200px;
+    background-color: #3d1010;
+    list-style: none;
+    padding: 8px 0;
+    margin: 0;
+    border-top: 2px solid #c8a96e;
+    border-radius: 0 0 4px 4px;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.30);
+    z-index: 200;
+}
+
+.satu-has-dropdown:hover > .satu-dropdown {
+    display: block;
+}
+
+.satu-dropdown li a {
+    display: block;
+    color: rgba(255, 255, 255, 0.78) !important;
+    text-decoration: none !important;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 0.80rem;
+    font-weight: 500;
+    letter-spacing: 0.8px;
+    padding: 10px 20px;
+    transition: background 0.2s ease, color 0.2s ease, padding-left 0.2s ease;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+.satu-dropdown li:last-child a { border-bottom: none; }
+
+.satu-dropdown li a:hover {
+    background-color: rgba(200, 169, 110, 0.15);
+    color: #c8a96e !important;
+    padding-left: 26px;
+}
+
+/* ─── Hard reset against Elementor/WP default ul styles ─── */
+.satu-nav ul,
+.satu-nav ul li,
+.satu-nav-list,
+.satu-nav-list li {
+    list-style: none !important;
+    list-style-type: none !important;
+    margin: 0 !important;
+    padding: 0 !important;
+}
+
+@media (min-width: 901px) {
+    .satu-nav-list {
+        display: flex !important;
+        flex-direction: row !important;
+        align-items: center !important;
+    }
+}
+
+/* ─── Hamburger ──────────────────────────────────────────── */
+.satu-hamburger {
+    display: none;
+    flex-direction: column;
+    gap: 5px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 10px 14px;
+}
+
+.satu-hamburger span {
+    display: block;
+    width: 24px;
+    height: 2px;
+    background: #fff;
+    border-radius: 2px;
+    transition: all 0.3s ease;
+}
+
+/* ─── Tablet ─────────────────────────────────────────────── */
+@media (max-width: 900px) {
+    .satu-header {
+        padding: 14px 28px;
+        min-height: 75px;
+    }
+    .satu-logo-left,
+    .satu-logo-center,
+    .satu-header-right { height: 62px; }
+
+    /* Hide login button on tablet */
+    .satu-header-right { display: none; }
+
+    /* Hamburger visible */
+    .satu-nav { padding: 0 16px; justify-content: flex-start; }
+    .satu-hamburger { display: flex; }
+    .satu-nav-list {
+        display: none;
+        flex-direction: column;
+        align-items: flex-start;
+        width: 100%;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        right: 0;
+        background-color: #4a1414;
+        z-index: 100;
+        padding: 6px 0 12px;
+        border-top: 1px solid rgba(255, 255, 255, 0.10);
+        box-shadow: 0 6px 16px rgba(0, 0, 0, 0.25);
+    }
+    .satu-nav-list.open { display: flex; }
+    .satu-nav-list > li { width: 100%; }
+    .satu-nav-list > li > a {
+        padding: 12px 24px;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.07);
+        font-size: 0.83rem;
+    }
+    .satu-nav-list > li > a::after { display: none; }
+
+    /* Mobile dropdown */
+    .satu-dropdown {
+        position: static;
+        box-shadow: none;
+        border-top: none;
+        border-radius: 0;
+        background-color: rgba(0, 0, 0, 0.20);
+        padding: 4px 0;
+    }
+    .satu-has-dropdown:hover > .satu-dropdown { display: none; }
+    .satu-has-dropdown.open > .satu-dropdown { display: block; }
+    .satu-dropdown li a { padding: 9px 40px; }
+}
+
+/* ─── Mobile ─────────────────────────────────────────────── */
+@media (max-width: 600px) {
+    .satu-header {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        padding: 14px 16px;
+        gap: 10px;
+        min-height: unset;
+        position: relative;
+    }
+
+    /* Hide login button on mobile */
+    .satu-header-right { display: none; }
+
+    .satu-logo-left {
+        height: 45px;
+        width: 100%;
+        justify-content: flex-start;
+    }
+
+    .satu-logo-center {
+        height: 55px;
+        width: 100%;
+        justify-content: center;
+    }
+}
+
+/* ─── Small Mobile ───────────────────────────────────────── */
+@media (max-width: 380px) {
+    .satu-header { padding: 12px 14px; }
+    .satu-logo-left { height: 38px; }
+    .satu-logo-center { height: 48px; }
+
+    /* Hide login button on small mobile */
+    .satu-header-right { display: none; }
+}
+
+/* ─── Desktop only elements ──────────────────────────────── */
+.satu-desktop-only {
+    display: flex;
+}
+
+@media (max-width: 900px) {
+    .satu-desktop-only { display: none !important; }
+}
