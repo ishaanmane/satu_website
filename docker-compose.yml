@@ -28,7 +28,7 @@ services:
     volumes:
       - ./wordpress:/var/www/html
     ports:
-      - "8080:80"
+      - "80:80"
     networks:
       - satu_network
 

@@ -26,14 +26,6 @@ $viewport_content = apply_filters( 'hello_elementor_viewport_content', 'width=de
             <img src="/wp-content/uploads/2026/05/satu_logo.png" alt="SATU Presidents Forum">
         </a>
     </div>
-
-    <div class="satu-header-right satu-desktop-only">
-    	<?php if ( is_user_logged_in() ) : ?>
-        	<a href="<?php echo esc_url( wp_logout_url( home_url() ) ); ?>" class="satu-login-btn">Logout</a>
-    	<?php else : ?>
-        	<a href="<?php echo esc_url( wp_login_url() ); ?>" class="satu-login-btn">Login</a>
-    <?php endif; ?>
-    </div>
 </header>
 
 <!--
